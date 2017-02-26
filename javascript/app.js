@@ -15,8 +15,7 @@ var APIkey = "dc6zaTOxFJmzC";
           , method: 'GET'
         }).done(function(response){
           for (var i = 0; i < response.data.length; i++) {
-              $('#peopleGifs').prepend("<p> Rating: " + response.data[i].rating + "<br>" + 
-                "<img src='" + response.data[i].images.fixed_height.url + "'>");
+              $('#peopleGifs').prepend("<p> Rating: " + response.data[i].rating + "<br>" + "<img src='" + response.data[i].images.fixed_height.url + "'>");
           }
           
         });
@@ -46,7 +45,23 @@ var APIkey = "dc6zaTOxFJmzC";
 
       });
 
+      function animate() {
+
+        var name = $(this).attr('data-name');
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + name + "&limit=20&rating=r&api_key=" + APIkey;
+
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        }).done(function(response) {
+          for (var i = 0; i < response.data.length; i++) {
+            $("#peopleGifs").append(response.data[i].images.fixed_height.url);
+          }
+        });
+      }
+      
 
 
       $(document).on("click", ".person", showPeople);
+      $(document).on("click", "img", animate);
       displayData();
