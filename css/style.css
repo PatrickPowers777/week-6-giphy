@@ -1,0 +1,57 @@
+input[type=submit] {
+	width: 100px;
+	padding: 10px;
+	border-style: border-box;
+	background-color:lightgreen;
+	cursor: pointer;
+	border-radius: 3px;
+	border: 2px solid;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+input[type=submit]:hover {
+	width: 100px;
+	padding: 10px;
+	border-style: border-box;
+	background-color:lightgreen;
+	cursor: pointer;
+	border-radius: 3px;
+	border: 2px solid;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#peopleForm {
+	float: right;
+	margin: 150px 85px 20px 20px;
+}
+
+
+button {
+	width: 200px;
+	padding: auto;
+	margin: auto;
+	background-color:lightgreen;
+	cursor: pointer;
+	border-radius: 4px;
+	text-align: center:;
+	border:2px solid;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+img {
+	float:left;
+}
+
+#peopleGifs p:first-child {
+	clear: both;
+}
+
+p {
+	float:left;
+}
+
