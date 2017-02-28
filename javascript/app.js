@@ -19,15 +19,19 @@ var APIkey = "dc6zaTOxFJmzC";
               // this is where we're adding the images
               var br = $('<br>');
               var img = $('<img>');
-              var p = $('<p>')
-              img = img.attr('src', response.data[i].images.fixed_height_still.url);
-              img = img.attr('still', response.data[i].images.fixed_height_still.url);
-              img = img.attr('animate', response.data[i].images.fixed_height.url);
-              img = img.attr('status', 'still');
+              var p = $('<p>');
+              var imageContainer = $('<div>');
+              var rating = "Rating: " + response.data[i].rating;
+              p.text(rating);
 
-              $('#peopleGifs').append("<p>" + "Rating: " + response.data[i].rating);
-              $('#peopleGifs').append(br);
-              $('#peopleGifs').append(img);
+              img.attr('src', response.data[i].images.fixed_height_still.url);
+              img.attr('still', response.data[i].images.fixed_height_still.url);
+              img.attr('animate', response.data[i].images.fixed_height.url);
+              img.attr('status', 'still');
+
+
+              imageContainer.append(p, br, img);
+              $('#peopleGifs').append(imageContainer);
           }
           
         });
