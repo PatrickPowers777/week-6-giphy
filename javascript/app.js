@@ -15,7 +15,19 @@ var APIkey = "dc6zaTOxFJmzC";
           , method: 'GET'
         }).done(function(response){
           for (var i = 0; i < response.data.length; i++) {
-              $('#peopleGifs').prepend("<p> Rating: " + response.data[i].rating + "<br>" + "<img src='" + response.data[i].images.fixed_height.url + "'>");
+
+              // this is where we're adding the images
+              var br = $('<br>');
+              var img = $('<img>');
+              var p = $('<p>')
+              img = img.attr('src', response.data[i].images.fixed_height_still.url);
+              img = img.attr('still', response.data[i].images.fixed_height_still.url);
+              img = img.attr('animate', response.data[i].images.fixed_height.url);
+              img = img.attr('status', 'still');
+
+              $('#peopleGifs').append("<p>" + "Rating: " + response.data[i].rating);
+              $('#peopleGifs').append(br);
+              $('#peopleGifs').append(img);
           }
           
         });
@@ -31,7 +43,7 @@ var APIkey = "dc6zaTOxFJmzC";
 
           var x = $("<button>");
           x.addClass("person");
-          x.attr("data-name", people[i]);   
+          x.attr("data-name", people[i]);  
           x.text(people[i]);
           $("#peopleButtons").append(x);
         }
@@ -47,17 +59,36 @@ var APIkey = "dc6zaTOxFJmzC";
 
       function animate() {
 
-        var name = $(this).attr('data-name');
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + name + "&limit=20&rating=r&api_key=" + APIkey;
+        var ourImage = $(this);       
+        var status = $(this).attr('status');
+        // the link variable is just saving a string
+        var link = $(this).attr('src');
+        var still = $(this).attr('still');
+        var animate = $(this).attr('animate');
+        console.log(status, link);
 
-        $.ajax({
+        if(status == 'still'){
+            // if its still, we want to make it moving
+            ourImage.attr('src', animate);
+            ourImage.attr('status', 'animate')
+        }
+
+        else{
+
+          ourImage.attr('src', still);
+          ourImage.attr('status', 'still');
+          // the picture is moving, we want to make it still
+
+        }
+
+       /* $.ajax({
           url: queryURL,
           method: "GET"
         }).done(function(response) {
           for (var i = 0; i < response.data.length; i++) {
             $("#peopleGifs").append(response.data[i].images.fixed_height.url);
-          }
-        });
+          
+        });*/
       }
       
 

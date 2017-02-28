@@ -43,15 +43,14 @@ button:hover {
 }
 
 
-img {
-	float:left;
-}
-
-#peopleGifs p:first-child {
+p {
 	clear: both;
 }
 
-p {
-	float:left;
+#peopleGifs p {
+	clear: both;
 }
 
+img {
+	float: left;
+}
