@@ -85,14 +85,7 @@ var APIkey = "dc6zaTOxFJmzC";
 
         }
 
-       /* $.ajax({
-          url: queryURL,
-          method: "GET"
-        }).done(function(response) {
-          for (var i = 0; i < response.data.length; i++) {
-            $("#peopleGifs").append(response.data[i].images.fixed_height.url);
-          
-        });*/
+    
       }
       
 
