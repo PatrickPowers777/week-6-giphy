@@ -90,11 +90,10 @@ var APIkey = "dc6zaTOxFJmzC";
         }
 
         else{
-
+          // the picture is moving, we want to make it still
           ourImage.attr('src', still);
           ourImage.attr('status', 'still');
-          // the picture is moving, we want to make it still
-
+          
         }
 
     
@@ -104,7 +103,7 @@ var APIkey = "dc6zaTOxFJmzC";
       /* final functions to round out page. if you click on the .person
       submit button, then another button with that person's name will appear on the 
       top of the page. if you click on any of the images, then it will animate. 
-      displayData will make the buttons for the predetermined people defined in the
+      displayData will make the buttons display for the predetermined people defined in the
       'people' array from the beginning of this script */
       $(document).on("click", ".person", showPeople);
       $(document).on("click", "img", animate);
